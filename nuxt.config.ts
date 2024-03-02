@@ -8,6 +8,17 @@ export default defineNuxtConfig({
     'nuxt-primevue',
   ],
 
+  app: {
+    head: {
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap',
+        },
+      ],
+    },
+  },
+
   primevue: {
     options: { unstyled: true },
     importPT: {
@@ -24,6 +35,7 @@ export default defineNuxtConfig({
     config: {
       content: ['presets/**/*.{js,vue,ts}'],
       theme: {
+        fontFamily: { sans: ['Open Sans', 'sans-serif'] },
         extend: {
           colors: {
             'primary-50': 'rgb(var(--primary-50))',
