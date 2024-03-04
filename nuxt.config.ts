@@ -3,10 +3,16 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   typescript: { shim: false },
   modules: [
-    '@nuxtjs/tailwindcss',
+    '@nuxtjs/supabase',
     '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
+    '@nuxtjs/tailwindcss',
     'nuxt-primevue',
   ],
+
+  build: {
+    transpile: ['pinia-plugin-persistedstate'],
+  },
 
   app: {
     head: {
