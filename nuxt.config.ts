@@ -14,6 +14,12 @@ export default defineNuxtConfig({
     transpile: ['pinia-plugin-persistedstate'],
   },
 
+  supabase: {
+    redirectOptions: {
+      exclude: ['/signup'],
+    },
+  },
+
   app: {
     head: {
       link: [
@@ -77,7 +83,6 @@ export default defineNuxtConfig({
   },
 
   alias: {
-    pinia:
-      '/node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia.mjs',
+    pinia: '/node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia.mjs',
   },
 })
