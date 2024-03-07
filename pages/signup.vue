@@ -35,7 +35,7 @@ const signUp = async () => {
 
       <form class="mb-6 flex flex-col gap-4" @submit.prevent="signUp">
         <div class="flex flex-col gap-1">
-          <label class="text-md" for="username">Email</label>
+          <label class="text-sm" for="username">Email</label>
           <InputText
             id="username"
             v-model="signUpForm.email"
@@ -44,7 +44,7 @@ const signUp = async () => {
         </div>
 
         <div class="mb-2 flex flex-col gap-1">
-          <label class="text-md" for="password">Password</label>
+          <label class="text-sm" for="password">Password</label>
           <InputText
             id="password"
             v-model="signUpForm.password"
