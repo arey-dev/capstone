@@ -2,5 +2,7 @@
 const user = useSupabaseUser()
 </script>
 <template>
-  <pre>{{ user }}</pre>
+  <div>
+    <AppHeader />
+  </div>
 </template>

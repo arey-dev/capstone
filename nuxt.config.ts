@@ -46,6 +46,7 @@ export default defineNuxtConfig({
     exposeLevel: 2,
     config: {
       content: ['presets/**/*.{js,vue,ts}'],
+      darkMode: 'selector',
       theme: {
         fontFamily: { sans: ['Inter var', 'sans-serif'] },
         extend: {

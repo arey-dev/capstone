@@ -3,43 +3,25 @@ definePageMeta({
   layout: 'auth',
 })
 
-const client = useSupabaseClient()
-const router = useRouter()
+const { signIn } = useAuth()
 
 const loginForm = ref({
   email: '',
   password: '',
 })
 
-const loginError = ref('')
-
-const signIn = async () => {
-  try {
-    const { error } = await client.auth.signInWithPassword({
-      email: loginForm.value.email,
-      password: loginForm.value.password,
-    })
-
-    if (error) throw error
-
-    router.push('/')
-  } catch (error) {
-    if (error.status === 400) {
-      loginError.value = error.message
-    }
-
-    // console.log for now the other errors that might error
-    console.log(error)
-  }
-}
+const toast = useToast()
 </script>
 
 <template>
   <div>
     <NuxtLayout>
-      <h1 class="mb-6 text-2xl">Welcome Back</h1>
+      <h1 class="dark:text-surface-300 mb-6 text-2xl">Welcome Back</h1>
 
-      <form class="mb-6 flex flex-col gap-4" @submit.prevent="signIn">
+      <form
+        class="mb-6 flex flex-col gap-4"
+        @submit.prevent="() => signIn(loginForm)"
+      >
         <IconField icon-position="left">
           <InputIcon><i class="pi pi-user"></i></InputIcon>
           <InputText
@@ -47,6 +29,7 @@ const signIn = async () => {
             v-model="loginForm.email"
             class="w-full"
             placeholder="username"
+            autocomplete="off"
           />
         </IconField>
 
@@ -64,14 +47,18 @@ const signIn = async () => {
         <Button type="submit" class="py-2.5" label="Login" />
       </form>
 
-      <NuxtLink class="text-surface-600 mb-1 text-center text-sm underline">
+      <NuxtLink
+        class="text-surface-600 dark:text-surface-500 mb-1 text-center text-sm underline"
+      >
         Forgot your password?
       </NuxtLink>
       <NuxtLink
         to="/signup"
-        class="text-surface-600 text-center text-sm underline"
+        class="text-surface-600 dark:text-surface-500 text-center text-sm underline"
         >Don't have an account? Sign up</NuxtLink
       >
+
+      <Toast />
 
       <!-- Pwede tayo maglagay ng divider for soc med login (Oauth) -->
     </NuxtLayout>
