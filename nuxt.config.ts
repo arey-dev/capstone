@@ -14,6 +14,12 @@ export default defineNuxtConfig({
     transpile: ['pinia-plugin-persistedstate'],
   },
 
+  supabase: {
+    redirectOptions: {
+      exclude: ['/signup'],
+    },
+  },
+
   app: {
     head: {
       link: [
@@ -40,33 +46,42 @@ export default defineNuxtConfig({
     exposeLevel: 2,
     config: {
       content: ['presets/**/*.{js,vue,ts}'],
+      darkMode: 'selector',
       theme: {
-        fontFamily: { sans: ['Open Sans', 'sans-serif'] },
+        fontFamily: { sans: ['Inter var', 'sans-serif'] },
         extend: {
           colors: {
-            'primary-50': 'rgb(var(--primary-50))',
-            'primary-100': 'rgb(var(--primary-100))',
-            'primary-200': 'rgb(var(--primary-200))',
-            'primary-300': 'rgb(var(--primary-300))',
-            'primary-400': 'rgb(var(--primary-400))',
-            'primary-500': 'rgb(var(--primary-500))',
-            'primary-600': 'rgb(var(--primary-600))',
-            'primary-700': 'rgb(var(--primary-700))',
-            'primary-800': 'rgb(var(--primary-800))',
-            'primary-900': 'rgb(var(--primary-900))',
-            'primary-950': 'rgb(var(--primary-950))',
-            'surface-0': 'rgb(var(--surface-0))',
-            'surface-50': 'rgb(var(--surface-50))',
-            'surface-100': 'rgb(var(--surface-100))',
-            'surface-200': 'rgb(var(--surface-200))',
-            'surface-300': 'rgb(var(--surface-300))',
-            'surface-400': 'rgb(var(--surface-400))',
-            'surface-500': 'rgb(var(--surface-500))',
-            'surface-600': 'rgb(var(--surface-600))',
-            'surface-700': 'rgb(var(--surface-700))',
-            'surface-800': 'rgb(var(--surface-800))',
-            'surface-900': 'rgb(var(--surface-900))',
-            'surface-950': 'rgb(var(--surface-950))',
+            'primary-50': 'var(--primary-50)',
+            'primary-100': 'var(--primary-100)',
+            'primary-200': 'var(--primary-200)',
+            'primary-300': 'var(--primary-300)',
+            'primary-400': 'var(--primary-400)',
+            'primary-500': 'var(--primary-500)',
+            'primary-600': 'var(--primary-600)',
+            'primary-700': 'var(--primary-700)',
+            'primary-800': 'var(--primary-800)',
+            'primary-900': 'var(--primary-900)',
+            'primary-950': 'var(--primary-950)',
+            'surface-0': 'var(--surface-0)',
+            'surface-50': 'var(--surface-50)',
+            'surface-100': 'var(--surface-100)',
+            'surface-200': 'var(--surface-200)',
+            'surface-300': 'var(--surface-300)',
+            'surface-400': 'var(--surface-400)',
+            'surface-500': 'var(--surface-500)',
+            'surface-600': 'var(--surface-600)',
+            'surface-700': 'var(--surface-700)',
+            'surface-800': 'var(--surface-800)',
+            'surface-900': 'var(--surface-900)',
+            'surface-950': 'var(--surface-950)',
+            'surface-ground': 'var(--surface-ground)',
+            'surface-section': 'var(--surface-section)',
+            'surface-border': 'var(--surface-border)',
+            'surface-hover': 'var(--surface-hover)',
+            'surface-ground-dark': 'var(--surface-ground-dark)',
+            'surface-section-dark': 'var(--surface-section-dark)',
+            'surface-border-dark': 'var(--surface-border-dark)',
+            'surface-hover-dark': 'var(--surface-hover-dark)',
           },
         },
       },
@@ -77,7 +92,6 @@ export default defineNuxtConfig({
   },
 
   alias: {
-    pinia:
-      '/node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia.mjs',
+    pinia: '/node_modules/@pinia/nuxt/node_modules/pinia/dist/pinia.mjs',
   },
 })

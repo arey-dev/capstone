@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex min-h-screen items-center justify-center gap-4 dark:bg-gray-900"
-  >
+  <div class="bg-surface-section dark:bg-surface-ground-dark">
     <NuxtPage />
   </div>
 </template>
