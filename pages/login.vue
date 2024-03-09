@@ -9,8 +9,6 @@ const loginForm = ref({
   email: '',
   password: '',
 })
-
-const toast = useToast()
 </script>
 
 <template>

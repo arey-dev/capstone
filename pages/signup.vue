@@ -3,29 +3,9 @@ definePageMeta({
   layout: 'auth',
 })
 
-const client = useSupabaseClient()
+const { signUp } = useAuth()
 
 const signUpForm = ref({ email: '', password: '' })
-
-const signUperror = ref('')
-
-const signUp = async () => {
-  try {
-    const { error } = await client.auth.signUp({
-      email: signUpForm.value.email,
-      password: signUpForm.value.password,
-    })
-
-    if (error) throw error
-  } catch (error) {
-    if (error.status === 400) {
-      signUperror.value = error.message
-    }
-
-    // console.log for now the other errors that might error
-    console.log(error)
-  }
-}
 </script>
 
 <template>
@@ -33,7 +13,10 @@ const signUp = async () => {
     <NuxtLayout>
       <h1 class="dark:text-surface-300 mb-6 text-2xl">Sign Up</h1>
 
-      <form class="mb-6 flex flex-col gap-4" @submit.prevent="signUp">
+      <form
+        class="mb-6 flex flex-col gap-4"
+        @submit.prevent="() => signUp(signUpForm)"
+      >
         <div class="flex flex-col gap-1">
           <label class="dark:text-surface-400 text-sm" for="username"
             >Email</label
