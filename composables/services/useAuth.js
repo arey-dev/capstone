@@ -40,7 +40,12 @@ export const useAuth = () => {
       if (error) throw error
     } catch (err) {
       if (err.status === 400) {
-        error.value = err.message
+        toast.add({
+          severity: 'error',
+          summary: 'Error Message',
+          detail: err.message,
+          life: 3000,
+        })
       }
 
       console.log(error)
