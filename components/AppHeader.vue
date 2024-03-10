@@ -6,12 +6,12 @@ const menubarItems = ref([
   {
     icon: 'pi pi-home',
     label: 'Home',
-    route: '/home',
+    route: '/',
   },
   {
     icon: 'pi pi-th-large',
     label: 'Expo',
-    route: 'expo',
+    route: '/expo',
   },
   {
     icon: 'pi pi-comments',
@@ -21,7 +21,6 @@ const menubarItems = ref([
   {
     icon: 'pi pi-bell',
     label: 'Notifications',
-    route: '/notifications',
   },
 ])
 
@@ -49,7 +48,12 @@ const toggle = (event) => {
 </script>
 
 <template>
-  <Menubar :model="menubarItems">
+  <Menubar
+    :model="menubarItems"
+    class="shadow-none"
+    pt:start:class="mr-auto"
+    pt:root:class="relative flex items-center p-2 border-0"
+  >
     <template #start>
       <svg
         width="35"
@@ -80,15 +84,17 @@ const toggle = (event) => {
       </NuxtLink>
     </template>
     <template #end>
-      <div class="flex items-center gap-2">
-        <Avatar :label="user.email.slice(0, 2)" />
-        <span class="px-2 text-sm">User Name</span>
+      <div
+        class="bg-surface-100 dark:bg-surface-800 flex items-center gap-2 rounded-xl p-1"
+      >
+        <Avatar :label="user.email.slice(0, 2)" class="dark:text-surface-100" />
+        <span class="dark:text-surface-100 px-2 text-sm">User Name</span>
         <Button
           type="button"
           icon="pi pi-chevron-down"
           aria-haspopup="true"
           aria-controls="overlay_menu"
-          pt:root:class="flex justify-center items-center bg-transparent text-xs"
+          pt:root:class="flex justify-center items-center bg-transparent text-xs mr-2 dark:text-primary-500"
           @click="toggle"
         />
         <Menu id="overlay_menu" ref="menu" :model="menuItems" :popup="true" />

@@ -1,8 +1,7 @@
-<script setup>
-const user = useSupabaseUser()
-</script>
+<script setup></script>
 <template>
   <div>
     <AppHeader />
+    <NuxtPage />
   </div>
 </template>
