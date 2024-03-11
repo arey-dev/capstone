@@ -6,7 +6,7 @@ const menubarItems = ref([
   {
     icon: 'pi pi-home',
     label: 'Home',
-    route: '/',
+    route: '/home',
   },
   {
     icon: 'pi pi-th-large',
